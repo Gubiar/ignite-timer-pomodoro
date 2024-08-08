@@ -2,8 +2,10 @@ import { useState } from "react";
 import Digito from "../components/Digito";
 
 export default function HomePage() {
+  //this useState's will change, relax
   const [time, setTime] = useState(5);
   const [name, setName] = useState("");
+  const [isRunning, setIsRunning] = useState(false);
 
   const handleIncrement = () => setTime((prev) => (prev < 60 ? prev + 5 : 60));
   const handleDecrement = () => setTime((prev) => (prev > 5 ? prev - 5 : 0));
@@ -143,11 +145,19 @@ export default function HomePage() {
         <Digito value={0} />
       </div>
       <button
-        type="submit"
-        className={`disabled:hover:brightness-100 disable disabled:opacity-70 disabled:cursor-not-allowed w-full h-16 flex items-center justify-center gap-4 bg-green-500 rounded-lg text-white text-lg font-bold hover:brightness-125 transition-all ease-in-out duration-300`}
+        type="button"
+        onClick={() => setIsRunning((prev) => !prev)}
+        className={`${isRunning ? "bg-red-500 focus:shadow-none" : "bg-green-500"} disabled:hover:brightness-100 disable disabled:opacity-70 disabled:cursor-not-allowed w-full h-16 flex items-center justify-center gap-4 rounded-lg text-white text-lg font-bold hover:brightness-125 transition-all ease-in-out duration-300`}
       >
-        <Start />
-        Começar
+        {isRunning ? (
+          <>
+            <Stop /> Parar
+          </>
+        ) : (
+          <>
+            <Start /> Começar
+          </>
+        )}
       </button>
     </form>
   );
