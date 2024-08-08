@@ -20,6 +20,9 @@ export default {
         "red-700": "var(--red-700)",
         "yellow-500": "var(--yellow-500)",
       },
+      fontFamily: {
+        inter: "var(--font-inter)",
+      },
     },
   },
   plugins: [],

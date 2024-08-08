@@ -24,6 +24,8 @@
 
     --yellow-500: #fba94c;
 
+    --font-inter: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothin--g: antialiased;
@@ -32,9 +34,11 @@
     font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   }
 
-  body {
+  body,
+  #root {
     width: 100%;
     min-height: 100dvh;
+    height: 100dvh;
     background-color: var(--gray-900);
     color: var(--gray-300);
   }
@@ -64,4 +68,9 @@
   li {
     list-style: none;
   }
+}
+
+#name::-webkit-calendar-picker-indicator {
+  display: none !important;
+  -webkit-appearance: none;
 }
