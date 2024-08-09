@@ -22,6 +22,7 @@ export default {
       },
       fontFamily: {
         inter: "var(--font-inter)",
+        rubik: "var(--font-rubik)",
       },
     },
   },

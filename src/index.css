@@ -24,6 +24,7 @@
 
     --yellow-500: #fba94c;
 
+    --font-rubik: "Rubik Mono One", monospace;
     --font-inter: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
     font-synthesis: none;
@@ -73,4 +74,23 @@
 #name::-webkit-calendar-picker-indicator {
   display: none !important;
   -webkit-appearance: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  z-index: 2; /* Make sure the scrollbar floats above other content */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-600); /* Color of the scrollbar track */
+  z-index: 2; /* Make sure the scrollbar floats above other content */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400); /* Color of the scrollbar */
+  border-radius: 4px; /* Roundness of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-600); /* Color of the scrollbar thumb on hover */
 }

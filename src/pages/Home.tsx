@@ -86,7 +86,7 @@ export default function HomePage() {
   }
 
   return (
-    <form className="flex flex-col max-w-7xl justify-center m-auto h-full p-4 gap-16">
+    <form className="flex flex-col w-100 h-100 justify-center gap-16 m-auto">
       <div className="flex items-center gap-4 text-white text-lg flex-wrap">
         <label htmlFor="name">Vou trabalhar em</label>
         <input
@@ -137,7 +137,7 @@ export default function HomePage() {
         </div>
         <p>minutos</p>
       </div>
-      <div className="flex items-center justify-center font-inter gap-6">
+      <div className="flex items-center justify-center font-rubik gap-6">
         <Digito value={0} />
         <Digito value={0} />
         <span className="font-bold text-9xl text-green-500">:</span>
