@@ -1,4 +1,4 @@
-export interface ItemProps {
+export interface CycleProps {
   id: number;
   name: string;
   duration: number;
