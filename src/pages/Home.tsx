@@ -1,5 +1,5 @@
 // HomePage.tsx
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useCountdown } from "../context/CountdownContext";
@@ -11,14 +11,11 @@ import { timerFormSchema } from "../zodSchemas";
 const HomePage = () => {
   const { addCycle } = useCountdown();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<z.infer<typeof timerFormSchema>>({
+  const timerForm = useForm<z.infer<typeof timerFormSchema>>({
     resolver: zodResolver(timerFormSchema),
   });
+
+  const { reset, handleSubmit } = timerForm;
 
   const onSubmit = (values: z.infer<typeof timerFormSchema>) => {
     addCycle(values);
@@ -27,7 +24,9 @@ const HomePage = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full h-full justify-center gap-16 m-auto">
-      <FormFields register={register} errors={errors} />
+      <FormProvider {...timerForm}>
+        <FormFields />
+      </FormProvider>
       <Display />
       <FormButton />
     </form>

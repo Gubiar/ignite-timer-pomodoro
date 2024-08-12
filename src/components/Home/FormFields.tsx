@@ -1,23 +1,18 @@
-import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import Minus from "../icons/Minus";
 import Plus from "../icons/Plus";
 
-interface FormFieldsProps {
-  register: UseFormRegister<FielsProps>;
-  errors: FieldErrors<FielsProps>;
-}
+export default function FormFiels() {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
-interface FielsProps {
-  name: string;
-  timeAmount: number;
-}
-
-export default function FormFiels({ register, errors }: FormFieldsProps) {
   const handleDecrement = () => {};
   const handleIncrement = () => {};
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       <div className="flex items-center gap-4 text-white text-lg flex-wrap">
         <label htmlFor="name">Vou trabalhar em</label>
         <input
@@ -64,8 +59,12 @@ export default function FormFiels({ register, errors }: FormFieldsProps) {
         </div>
         <p>minutos</p>
       </div>
-      {errors.name && <span className="text-red-500">{errors.name.message}</span>}
-      {errors.timeAmount && <span className="text-red-500">{errors.timeAmount.message}</span>}
+      <div
+        className={`${errors.name || errors.timeAmount ? "flex" : "hidden"} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[200%] shadow-lg bg-gray-700 p-4  flex-col text-center items-center justify-center rounded-lg font-bold text-lg`}
+      >
+        {errors.name && <span className="text-red-500">{errors?.name?.message?.toString()}</span>}
+        {errors.timeAmount && <span className="text-red-500">{errors?.timeAmount?.message?.toString()}</span>}
+      </div>
     </div>
   );
 }

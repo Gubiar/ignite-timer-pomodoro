@@ -15,7 +15,7 @@ interface CountdownContextType {
   setTime: (value: React.SetStateAction<number>) => void;
 }
 
-const CountdownContext = createContext<CountdownContextType | undefined>(undefined);
+const CountdownContext = createContext({} as CountdownContextType);
 
 export const CountdownProvider = ({ children }: { children: ReactNode }) => {
   const [cycles, setCycles] = useState<CycleProps[]>([]);
