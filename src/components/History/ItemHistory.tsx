@@ -1,5 +1,5 @@
 import { CycleProps } from "../../types";
-import { format } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 interface ItemHistoryProps {
@@ -13,7 +13,7 @@ export default function ItemHistory({ item }: ItemHistoryProps) {
     3: "bg-red-500",
   } as const;
 
-  const formattedDate = format(new Date(item.createDate), "dd/MM/yyyy", { locale: ptBR });
+  const formattedDate = formatDistanceToNow(new Date(item.createDate), { locale: ptBR, addSuffix: true });
 
   return (
     <li className="bg-gray-800 grid grid-cols-6 gap-2 p-4">
