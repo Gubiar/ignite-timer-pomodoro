@@ -5,11 +5,20 @@ import Plus from "../icons/Plus";
 export default function FormFiels() {
   const {
     register,
+    setValue,
+    getValues,
     formState: { errors },
   } = useFormContext();
 
-  const handleDecrement = () => {};
-  const handleIncrement = () => {};
+  const handleDecrement = () => {
+    const currentValue = getValues("timeAmount") || 0;
+    setValue("timeAmount", Math.max(0, currentValue - 5));
+  };
+
+  const handleIncrement = () => {
+    const currentValue = getValues("timeAmount") || 0;
+    setValue("timeAmount", Math.min(60, currentValue + 5));
+  };
 
   return (
     <div className="flex flex-col relative">
