@@ -22,7 +22,7 @@ export default function FormFiels() {
 
   return (
     <div className="flex flex-col relative">
-      <div className="flex items-center gap-4 text-white text-lg flex-wrap">
+      <div className="flex items-center gap-4 text-white text-lg max-sm:text-sm flex-wrap">
         <label htmlFor="name">Vou trabalhar em</label>
         <input
           id="name"

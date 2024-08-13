@@ -53,7 +53,7 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full h-14 flex items-center justify-between px-8 py-14">
+    <header className="w-full max-sm:h-14 max-sm:py-12 h-14 flex items-center justify-between px-8 py-14">
       <img src={Logo} alt="Logo" />
       <div className="flex gap-4">
         <button

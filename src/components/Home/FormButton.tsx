@@ -18,7 +18,7 @@ export default function FormButton() {
     <button
       type={activeCycleId ? "button" : "submit"}
       onClick={activeCycleId ? stopCycle : undefined}
-      className={`${activeCycleId ? "bg-red-500 focus:shadow-none" : "bg-green-500"} disabled:hover:brightness-100 disable disabled:opacity-70 disabled:cursor-not-allowed w-full h-16 flex items-center justify-center gap-4 rounded-lg text-white text-lg font-bold hover:brightness-125 transition-all ease-in-out duration-300`}
+      className={`${activeCycleId ? "bg-red-500 focus:shadow-none" : "bg-green-500"} disabled:hover:brightness-100 disable disabled:opacity-70 disabled:cursor-not-allowed w-full h-16 max-sm:h-14 flex items-center justify-center gap-4 rounded-lg text-white text-lg max-sm:text-base font-bold hover:brightness-125 transition-all ease-in-out duration-300`}
     >
       {activeCycleId ? (
         <>
