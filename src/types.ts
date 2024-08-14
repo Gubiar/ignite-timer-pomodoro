@@ -6,4 +6,7 @@ export interface CycleProps {
   status: Status;
 }
 
-type Status = { id: 1; value: "Em andamento" } | { id: 2; value: "Concluído" } | { id: 3; value: "Interrompido" };
+type Status =
+  | { id: 1; value: "Em andamento" }
+  | { id: 2; value: "Concluído" }
+  | { id: 3; value: "Interrompido" };

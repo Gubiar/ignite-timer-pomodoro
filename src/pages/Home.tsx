@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col w-full h-full justify-center max-sm:gap-0 max-sm:justify-between gap-16 m-auto p-4"
+      className="m-auto flex h-full w-full flex-col justify-center gap-16 p-4 max-sm:justify-between max-sm:gap-0"
     >
       <FormProvider {...timerForm}>
         <FormFields />

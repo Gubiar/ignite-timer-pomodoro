@@ -1,5 +1,11 @@
 // CountdownContext.tsx
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { z } from "zod";
 import { differenceInSeconds } from "date-fns";
 import { CycleProps } from "../types";
@@ -37,7 +43,10 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
     const interval = setInterval(() => {
       const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId);
       if (activeCycle) {
-        const secondsDiff = differenceInSeconds(new Date(), activeCycle.createDate);
+        const secondsDiff = differenceInSeconds(
+          new Date(),
+          activeCycle.createDate,
+        );
 
         if (secondsDiff >= activeCycle.duration * 60) {
           setTime(0);
@@ -45,8 +54,10 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
           setActiveCycleId(undefined);
           setCycles((prev) =>
             prev.map((cycle) =>
-              cycle.id === activeCycleId ? { ...cycle, status: { id: 2, value: "Concluído" } } : cycle
-            )
+              cycle.id === activeCycleId
+                ? { ...cycle, status: { id: 2, value: "Concluído" } }
+                : cycle,
+            ),
           );
         } else {
           setTime(activeCycle.duration * 60 - secondsDiff);
@@ -72,7 +83,17 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <CountdownContext.Provider value={{ cycles, activeCycleId, time, addCycle, setCycles, setActiveCycleId, setTime }}>
+    <CountdownContext.Provider
+      value={{
+        cycles,
+        activeCycleId,
+        time,
+        addCycle,
+        setCycles,
+        setActiveCycleId,
+        setTime,
+      }}
+    >
       {children}
     </CountdownContext.Provider>
   );

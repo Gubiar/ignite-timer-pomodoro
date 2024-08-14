@@ -14,12 +14,14 @@ export default function Display() {
   }
 
   return (
-    <div className="flex items-center justify-center font-rubik gap-6 max-sm:gap-4 max-sm:flex-col">
+    <div className="flex items-center justify-center gap-6 font-rubik max-sm:flex-col max-sm:gap-4">
       <div className="flex gap-6 max-sm:gap-4">
         <Digito value={Math.floor(minutes / 10)} />
         <Digito value={minutes % 10} />
       </div>
-      <span className="font-bold max-sm:hidden text-9xl max-[965px]:text-4xl text-green-500">:</span>
+      <span className="text-9xl font-bold text-green-500 max-[965px]:text-4xl max-sm:hidden">
+        :
+      </span>
       <div className="flex gap-6 max-sm:gap-4">
         <Digito value={Math.floor(seconds / 10)} />
         <Digito value={seconds % 10} />

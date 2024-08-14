@@ -1,6 +1,12 @@
 export default function Start() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" fill="none" viewBox="0 0 21 24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="21"
+      height="24"
+      fill="none"
+      viewBox="0 0 21 24"
+    >
       <path
         className="fill-white"
         fillRule="evenodd"

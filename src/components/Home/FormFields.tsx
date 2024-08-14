@@ -21,12 +21,12 @@ export default function FormFiels() {
   };
 
   return (
-    <div className="flex flex-col relative">
-      <div className="flex items-center gap-4 text-white text-lg max-sm:text-sm flex-wrap">
+    <div className="relative flex flex-col">
+      <div className="flex flex-wrap items-center gap-4 text-lg text-white max-sm:text-sm">
         <label htmlFor="name">Vou trabalhar em</label>
         <input
           id="name"
-          className="hidden-arrow flex-1 pl-4 bg-transparent focus:rounded-md p-2 transition-all ease-in-out duration-300 focus:border-b-transparent border-b-solid border-b-2 border-b-gray-300 text-gray-300 w-fit min-w-64"
+          className="hidden-arrow border-b-solid w-fit min-w-64 flex-1 border-b-2 border-b-gray-300 bg-transparent p-2 pl-4 text-gray-300 transition-all duration-300 ease-in-out focus:rounded-md focus:border-b-transparent"
           type="text"
           list="task-suggestions"
           placeholder="Dê um nome para a tarefa"
@@ -40,16 +40,16 @@ export default function FormFiels() {
         </datalist>
 
         <label htmlFor="time">durante</label>
-        <div className="px-2 flex border-b-solid border-2 transition-all ease-in-out duration-300 border-transparent border-b-gray-300 has-[*:focus]:border-2 has-[*:focus]:border-green-500 has-[*:focus]:rounded-md">
+        <div className="border-b-solid flex border-2 border-transparent border-b-gray-300 px-2 transition-all duration-300 ease-in-out has-[*:focus]:rounded-md has-[*:focus]:border-2 has-[*:focus]:border-green-500">
           <button
             type="button"
-            className="group focus:shadow-none w-4 items-center justify-center"
+            className="group w-4 items-center justify-center focus:shadow-none"
             onClick={handleDecrement}
           >
             <Minus />
           </button>
           <input
-            className="flex items-center justify-center bg-transparent focus:shadow-none transition-all ease-in-out duration-300 p-2 text-gray-300 w-10 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-moz-appearance:textfield]"
+            className="[&::-moz-appearance:textfield] flex w-10 appearance-none items-center justify-center bg-transparent p-2 text-gray-300 transition-all duration-300 ease-in-out focus:shadow-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             type="number"
             id="time"
             placeholder="00"
@@ -60,7 +60,7 @@ export default function FormFiels() {
           />
           <button
             type="button"
-            className="group focus:shadow-none flex items-center justify-center w-4"
+            className="group flex w-4 items-center justify-center focus:shadow-none"
             onClick={handleIncrement}
           >
             <Plus />
@@ -69,10 +69,18 @@ export default function FormFiels() {
         <p>minutos</p>
       </div>
       <div
-        className={`${errors.name || errors.timeAmount ? "flex" : "hidden"} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[200%] shadow-lg bg-gray-700 p-4  flex-col text-center items-center justify-center rounded-lg font-bold text-lg`}
+        className={`${errors.name || errors.timeAmount ? "flex" : "hidden"} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[200%] transform flex-col items-center justify-center rounded-lg bg-gray-700 p-4 text-center text-lg font-bold shadow-lg`}
       >
-        {errors.name && <span className="text-red-500">{errors?.name?.message?.toString()}</span>}
-        {errors.timeAmount && <span className="text-red-500">{errors?.timeAmount?.message?.toString()}</span>}
+        {errors.name && (
+          <span className="text-red-500">
+            {errors?.name?.message?.toString()}
+          </span>
+        )}
+        {errors.timeAmount && (
+          <span className="text-red-500">
+            {errors?.timeAmount?.message?.toString()}
+          </span>
+        )}
       </div>
     </div>
   );
