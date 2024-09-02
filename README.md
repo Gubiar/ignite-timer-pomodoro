@@ -1,5 +1,7 @@
 # Ignite Timer Pomodoro
 
+![Timer Pomodoro](https://opengraph.b-cdn.net/production/images/ffa113ee-2371-4a0a-ba21-1c3141d97be9.png?token=Y81So2QfdfZDWSIR7EIINXXl_AxFn50Ewi-M8aPsSeA&height=675&width=1200&expires=33259581037)
+
 Ignite Timer Pomodoro is a Pomodoro-style timer built with React and Vite. The application allows users to create tasks, set focus times, and track their progress.
 
 The design of this project was created as part of an activity in the **Formação em React** course offered by Rocketseat. Learn more at [Rocketseat](https://app.rocketseat.com.br/).
