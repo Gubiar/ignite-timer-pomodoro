@@ -6,17 +6,14 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { z } from "zod";
 import { differenceInSeconds } from "date-fns";
 import { CycleProps } from "../types";
-import { timerFormSchema } from "../zodSchemas";
 
 interface CountdownContextType {
   cycles: CycleProps[];
   activeCycleId: number | undefined;
   time: number;
   setCycles: (value: React.SetStateAction<CycleProps[]>) => void;
-  addCycle: (values: z.infer<typeof timerFormSchema>) => void;
   setActiveCycleId: (value: React.SetStateAction<number | undefined>) => void;
   setTime: (value: React.SetStateAction<number>) => void;
 }
@@ -68,27 +65,12 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
     return () => clearInterval(interval);
   }, [activeCycleId, cycles]);
 
-  const addCycle = (values: z.infer<typeof timerFormSchema>) => {
-    const newCycleId = new Date().getTime();
-    const newCycle: CycleProps = {
-      createDate: new Date(),
-      duration: values.timeAmount,
-      id: newCycleId,
-      name: values.name,
-      status: { id: 1, value: "Em andamento" },
-    };
-
-    setCycles((prev) => [newCycle, ...prev]);
-    setActiveCycleId(newCycleId);
-  };
-
   return (
     <CountdownContext.Provider
       value={{
         cycles,
         activeCycleId,
         time,
-        addCycle,
         setCycles,
         setActiveCycleId,
         setTime,
